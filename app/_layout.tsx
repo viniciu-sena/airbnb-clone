@@ -75,7 +75,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
-  
+
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
       router.push('/(modals)/login');
@@ -92,7 +92,10 @@ function RootLayoutNav() {
           title: 'Log in or sign up',
           headerTitleStyle: { fontFamily: 'mon-sb' },
           headerLeft: () => (
-            <TouchableOpacity onPress={() => router.back()} style={{ marginRight: 16 }}>
+            <TouchableOpacity
+              onPress={() => router.back()}
+              style={{ marginRight: 16 }}
+            >
               <Ionicons name="close-outline" size={28} />
             </TouchableOpacity>
           ),
@@ -109,7 +112,7 @@ function RootLayoutNav() {
           ),
         }}
       />
-      <Stack.Screen name="listing/[id]" options={{ headerTitle: '' }} />
+      <Stack.Screen name="listing/[id]" />
     </Stack>
   );
 }
